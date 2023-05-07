@@ -1,0 +1,11 @@
+bar += f"{colors.BOLD}-----{colors.ENDC}"
+bar += f"{colors.OKCYAN}----------------{colors.ENDC}"
+bar += f"{colors.FAIL}----{colors.ENDC}"
+
+bar += f"{colors.WARNING}-----{colors.ENDC}"
+bar += f"{colors.FAIL}----------------{colors.ENDC}"
+bar += f"{colors.BOLD}----{colors.ENDC}"
+
+bar += f"{colors.OKCYAN}-----{colors.ENDC}"
+bar += f"{colors.OKGREEN}----------------{colors.ENDC}"
+bar += f"{colors.WARNING}----{colors.ENDC}"

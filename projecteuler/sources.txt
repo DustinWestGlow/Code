@@ -1,0 +1,2 @@
+https://stackoverflow.com/questions/65515494/fast-multiplication-and-modulo-operation
+https://www.alpertron.com.ar/ECM.HTM

@@ -14,12 +14,11 @@ col_list = ['\033[94m', '\033[96m', '\033[92m', '\033[91m', '\033[1m']
 ENDC = '\033[0m'
 
 import random
-import os
 import time
 
+# print random colored letters
 alphabet = [chr(ord('a') + i) for i in range(26)]
-
 while True:
-    for i in range(100):
+    for i in range(120):
         print(random.choice(col_list) + random.choice(alphabet) + ENDC, end=" ")
     time.sleep(0.05)

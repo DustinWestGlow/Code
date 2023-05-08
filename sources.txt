@@ -3,3 +3,8 @@ https://git-scm.com/book/en/v2
 https://stackoverflow.com/questions/65515494/fast-multiplication-and-modulo-operation
 https://www.alpertron.com.ar/ECM.HTM
 https://stackoverflow.com/questions/1450897/remove-characters-except-digits-from-string-using-python
+https://code.activestate.com/recipes/134892/
+http://preserve.mactech.com/macintosh-c/chap02-1.html
+https://stackoverflow.com/questions/13207678/whats-the-simplest-way-of-detecting-keyboard-input-in-a-script-from-the-termina
+https://docs.python.org/3/howto/curses.html
+https://stackoverflow.com/questions/51925804/javascript-highlight-an-element-on-hover

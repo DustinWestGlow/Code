@@ -26,6 +26,6 @@ def gcd(big, sml):
     
 print("SOLVED!")
 big = 26
-sml = 3
+sml = 3 # 14
 result = gcd(big, sml)
 print(f"GCD of({big}, {sml}): {result}")

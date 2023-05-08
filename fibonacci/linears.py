@@ -1,3 +1,9 @@
+seq = [0, 1]
+
+for i in range(2, 10+2):
+    seq.append(seq[-1]+seq[-2])
+    print(seq[i])
+
 a = 1
 b = 1
 c = a
@@ -59,11 +65,11 @@ for i in range(10):
 # https://www.youtube.com/watch?v=4aKVv5cHrUY&ab_channel=HindiLife
 seq = [0, 1]
 for i in range(2, 10+2):
-    seq.append(seq[i-1]+seq[i-2])
+    seq.append( seq[ i - 1 ] + seq[ i - 2 ] )
     print(seq[i])
     
 #https://www.youtube.com/watch?v=0xUmsMw4-Qo&ab_channel=EaseCoding
 seq = [0, 1]
 for i in range(2, 10+2):
-    seq.append(seq[-1]+seq[-2])
+    seq.append( seq[ -1 ] + seq[ -2 ] )
     print(seq[i])

@@ -1,0 +1,5 @@
+https://git-scm.com/doc
+https://git-scm.com/book/en/v2
+https://stackoverflow.com/questions/65515494/fast-multiplication-and-modulo-operation
+https://www.alpertron.com.ar/ECM.HTM
+https://stackoverflow.com/questions/1450897/remove-characters-except-digits-from-string-using-python

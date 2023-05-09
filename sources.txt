@@ -8,3 +8,12 @@ http://preserve.mactech.com/macintosh-c/chap02-1.html
 https://stackoverflow.com/questions/13207678/whats-the-simplest-way-of-detecting-keyboard-input-in-a-script-from-the-termina
 https://docs.python.org/3/howto/curses.html
 https://stackoverflow.com/questions/51925804/javascript-highlight-an-element-on-hover
+Note: The id name must contain at least one character, cannot start with a number, and must not contain whitespaces (spaces, tabs, etc.).
+https://stackoverflow.com/questions/3076679/javascript-event-registering-without-using-jquery
+https://stackoverflow.com/questions/588040/window-onload-vs-document-onload
+https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent
+https://stackoverflow.com/questions/384286/how-do-you-check-if-a-javascript-object-is-a-dom-object
+https://stackoverflow.com/questions/4364881/inserting-string-at-position-x-of-another-string
+https://stackoverflow.com/questions/7137401/why-is-the-function-executed-immediately-when-i-use-settimeout
+
+

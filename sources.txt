@@ -15,5 +15,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent
 https://stackoverflow.com/questions/384286/how-do-you-check-if-a-javascript-object-is-a-dom-object
 https://stackoverflow.com/questions/4364881/inserting-string-at-position-x-of-another-string
 https://stackoverflow.com/questions/7137401/why-is-the-function-executed-immediately-when-i-use-settimeout
+https://codedamn.com/news/javascript/how-to-read-csv-with-javascript
+https://github.com/evanplaice/jquery-csv/blob/main/docs/api.md
 
 

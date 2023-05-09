@@ -1,0 +1,76 @@
+<button id="btn">
+    <h3>
+        Press Me.
+    </h3>
+</button>
+
+<div id="player">
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<style>
+    #btn {
+        background-color: red;
+        color: white;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+<script>
+
+    function play(data, target) {
+        var html = "";
+        html += "<" + data.tag + " id='" + data.id + "'>" + "</" + data.tag + ">";
+        $(target).append(html);
+        for (var i = 0; i < data.markdown.length; i++) {
+            html = "";
+            for (var j = 0; j <= i; j++) {
+                html += data.markdown[j];
+            }
+            setTimeout(function(el_id, el_content) {
+                $("#" + el_id).html(el_content);
+            }, i * data.dt * 1000, data.id, html);
+            // multiply by a 1000 for ms
+            // dt is in seconds   
+        }
+    }
+    var execution_time = 0;
+    var started = false;
+    function start() {
+        for (var i = 0; i < content.length; i++)
+        {
+            var seq = content[i];
+            var duration = seq["markdown"].length * seq["dt"] * 1000;
+            setTimeout(function(c) {
+                play(c, "#player");
+            }, execution_time, seq);
+            execution_time += duration + 200;
+        }
+    }
+    $(document).ready(function() {
+        content = d3.csvParse(csv);
+        for (var i = 0; i < content.length; i++) {
+            content[i]["markdown"] = content[i]["markdown"].split('$');
+        }
+        $("#btn").click(function() {
+            if (!started) {
+                started = true;
+                start();
+            }
+            $(this).hide();
+        });
+    });
+    </script>
+
+    <script>
+        var csv =  `index,id,tag,dt,markdown
+0,drumsticks,h1,0.6,"<span style='color:red;'>One.</span>$ <span style='color:green;'>Two.</span>$ <span style='color:yellow;'>Three.</span>$ <span style='color:blue;'><u>Four</u>!</span>"
+1,call_in,b,0.2,"Let's$ get$ it$ <em>started!</em>"
+2,yodel_1,span,0.4,"<u>Female Lead:$ In$ Here</u>"
+3,yodel_2,span,0.1,"<h2 style='display: inline;'>e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e$e</h2>"
+4,wait,p,0.6,"($Wait$ For$ It$)"
+5,bass,h1,0.6,"And$ The$ <h6 style='display: inline;'><u>BASS</u></h6>$ Keeps$ Running$.$..$...$....$.....$......$........"`;
+    </script>

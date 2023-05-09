@@ -6,7 +6,7 @@
 
 <div id="player"></div>
 
-
+<script src="storage_1.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 
 <style>
@@ -17,52 +17,38 @@
 </style>
 
 <script>
-    var content = [
-    {
-        "id": "drumsticks",
-        "arr": ["One", ", 2", ", THREE", ", <u>Four!</u>"],
-        "dt": 0.6,
-        "tag": "h1",
-        "newline": true
-    },
-    {
-        "id": "callin",
-        "arr": ["Let's", " get", " it", " started!"],
-        "dt": 0.2,
-        "tag": "p",
-        "newline": false
-    },
-    {
-        "id": "yodel_1",
-        "arr": ["in", " here"],
-        "dt": 0.4,
-        "tag": "span",
-        "newline": false
-    },
-    {
-        "id": "yodel_2",
-        "arr": Array(10).fill("e"),
-        "dt": 0.1,
-        "tag": "span",
-        "newline": true
+    var content = load_content;
+    function play(data, target) {
+        var html = "";
+        html += "<" + data.tag + " id='" + data.id + "'>" + "</" + data.tag + ">";
+        $(target).append(html);
+        for (var i = 0; i < data.arr.length; i++) {
+            html = "";
+            for (var j = 0; j <= i; j++) {
+                html += data.arr[j];
+                console.log(i, j);
+            }
+            setTimeout(function(el_id, el_content) {
+                $("#" + el_id).html(el_content);
+            }, i * data.dt * 1000, data.id, html);
+            // multiply by a 1000 for ms
+            // dt is in seconds   
+        }
     }
-    ];
-    var content = "";
+    var execution_time = 0;
     $(document).ready(function() {
         for (var i = 0; i < content.length; i++)
         {
-            play(content[i], "#player");
-        }
-        for (var i = 0; i < play["intro"].length; i++) {
-            content = "";
-            for (var j = 0; j <= i; j++) {
-                content += play["intro"][j];
-            }
-            console.log(content);
-            setTimeout(function(t) {
-                $("#intro").html(t);
-            }, i * 600, content);
-            // 1234 are seconds but 1000 is too slow
+            // sequence and it's duration
+            // wait until one is done before playing next one
+            // by recording and stuff with execution time variable
+            // figure it out
+            var seq = content[i];
+            var duration = seq["arr"].length * seq["dt"] * 1000;
+            setTimeout(function(c) {
+                play(c, "#player");
+            }, execution_time, seq);
+            execution_time += duration + 200;
         }
     });
     </script>

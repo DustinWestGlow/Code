@@ -1,0 +1,67 @@
+<div id="editor">
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+<style>
+    #editor {
+        /* white-space: nowrap; */
+        white-space: pre-wrap;
+    }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+
+<script>
+
+    var cursor = {
+        afterdex: 0
+    };
+
+    var matter = ['|'];
+
+    var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    function update() {
+        $("#editor").html(matter.join(''));
+    }
+    function process_key(k) {
+        if (k != "Backspace")
+        {
+            matter.splice(cursor.afterdex, 1);
+        }
+        if (chars.indexOf(k) > -1)
+        {
+            matter.push(k);
+        }
+        else if (k == " ")
+        {
+            matter.push(" ");
+        }
+        else
+        {
+            
+        }
+        if (cursor == "Backspace")
+        {
+            matter.splice(cursor.afterdex, 1);
+            cursor.afterdex = Math.max(0, cursor.afterdex - 1);
+            matter.splice(cusor.afterdex, 1);
+            matter.splice(cursor.afterdex, 0, '|');
+        }
+        else
+        {
+            cursor.afterdex += 1;
+            matter.splice(cursor.afterdex, 0, '|');
+        }
+        
+    }
+    $(document).ready(function() {
+        window.addEventListener('keydown', function(e) {
+            process_key(e.key);
+            update();
+        });
+    
+    });
+    </script>

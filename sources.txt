@@ -17,5 +17,8 @@ https://stackoverflow.com/questions/4364881/inserting-string-at-position-x-of-an
 https://stackoverflow.com/questions/7137401/why-is-the-function-executed-immediately-when-i-use-settimeout
 https://codedamn.com/news/javascript/how-to-read-csv-with-javascript
 https://github.com/evanplaice/jquery-csv/blob/main/docs/api.md
-
+https://stackoverflow.com/questions/9811215/displaying-raw-text-in-html-like-a-text-editor
+https://ascii.cl/htmlcodes.htm
+https://stackoverflow.com/questions/4444477/how-to-tell-if-a-string-contains-a-certain-character-in-javascript
+https://stackoverflow.com/questions/10201977/how-to-reverse-tuples-in-python
 

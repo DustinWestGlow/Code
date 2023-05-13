@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas for Dustin</title>
+    <!-- Scripts and styles at bottom for loading -->
+</head>
+<body>
+    
+    <div id="container" class="container">
+
+      <div id="canvas_container">
+        <canvas id="canvas" width="250" height="250"></canvas>
+      </div>
+
+    </div>
+
+    <script>
+
+        window.requestAnimFrame = (function(){
+        return  window.requestAnimationFrame       ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame    ||
+                window.oRequestAnimationFrame      ||
+                window.msRequestAnimationFrame     ||
+                function( callback ){
+                    window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+
+        var canvas = document.getElementById('canvas');
+        var c = canvas.getContext('2d');
+        var screen_width = window.innerWidth - 10;
+        var screen_height = window.innerHeight - 10;
+        var container = document.getElementById("container");
+        container.setAttribute("style", "width:" + screen_width + "px; height: " + screen_height + "px; position: relative;");;
+        canvas.width = screen_width;
+        canvas.height = screen_height;
+        c.translate(0, screen_height);
+        c.scale(1, -1);
+        c.translate(screen_width/2, screen_height/2);
+
+        function draw_nodes(node_coords) {
+            var n = node_coords.length;
+            var dot_radius = 100 / n;
+            c.fillStyle = "white";
+            for (var i = 0; i < n; i++) {
+                var x = node_coords[i].x;
+                var y = node_coords[i].y;
+                c.beginPath();
+                c.moveTo(x, y);
+                c.arc(x, y, dot_radius, 0, Math.PI*2);
+                c.closePath();
+                c.fill();
+            }
+        }
+
+        // var matrix = [
+        //     [0, 0, 0, 0, 0],
+        //     [1, 0, 0, 0, 0],
+        //     [1, 1, 0, 0, 0],
+        //     [1, 1, 1, 0, 0],
+        //     [1, 1, 1, 1, 0]
+        // ];
+        var matrix = [
+  [ 0, 1, 0, 0 ],
+  [ 1, 0, 1, 1 ],
+  [ 0, 1, 0, 1 ],
+  [ 0, 1, 1, 0 ]
+];
+        var radius = 200;
+        var num_nodes = matrix.length;
+        node_coords = [];
+        for (var n = 0; n < num_nodes; n++) {
+            var angle = n * (Math.PI * 2 / num_nodes);
+            var x = radius * Math.cos(angle);
+            var y = radius * Math.sin(angle);
+            node_coords.push({
+                "x": x,
+                "y": y
+            });
+        }
+        function get_edge(a, b) {
+            return {
+                "s": node_coords[a],
+                "f": node_coords[b]
+            };
+        }
+        edge_coords = [];
+        for (var i = 0; i < matrix.length; i++) {
+            for (var j = 0; j < i; j++) {
+                if (matrix[i][j]) {
+                    edge_coords.push(get_edge(i, j));
+                }
+            }
+        }
+        function draw_edges(edge_coords) {
+            var n = edge_coords.length;
+            for (var i = 0; i < n; i++) {
+                var cset = edge_coords[i];
+                var start = cset.s;
+                var finish = cset.f;
+                c.strokeStyle = "yellow";
+                c.beginPath();
+                c.moveTo(start.x, start.y);
+                c.lineTo(finish.x, finish.y);
+                c.stroke();
+                c.closePath();
+            }
+        }
+
+        c.fillStyle = "indigo";
+        c.fillRect(-canvas.width/2,-canvas.height/2,canvas.width,canvas.height);
+        draw_nodes(node_coords);
+        
+        draw_edges(edge_coords);
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    
+</body>
+</html>

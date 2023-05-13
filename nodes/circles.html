@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas for Dustin</title>
+    <!-- Scripts and styles at bottom for loading -->
+</head>
+<body>
+    
+    <div id="container" class="container">
+
+      <div id="canvas_container">
+        <canvas id="canvas" width="250" height="250"></canvas>
+      </div>
+
+    </div>
+
+    <script>
+
+        window.requestAnimFrame = (function(){
+        return  window.requestAnimationFrame       ||
+                window.webkitRequestAnimationFrame ||
+                window.mozRequestAnimationFrame    ||
+                window.oRequestAnimationFrame      ||
+                window.msRequestAnimationFrame     ||
+                function( callback ){
+                    window.setTimeout(callback, 1000 / 60);
+                };
+        })();
+
+        var canvas = document.getElementById('canvas');
+        var c = canvas.getContext('2d');
+        var screen_width = window.innerWidth - 10;
+        var screen_height = window.innerHeight - 10;
+        var container = document.getElementById("container");
+        container.setAttribute("style", "width:" + screen_width + "px; height: " + screen_height + "px; position: relative;");;
+        canvas.width = screen_width;
+        canvas.height = screen_height;
+        c.translate(0, screen_height);
+        c.scale(1, -1);
+        c.translate(screen_width/2, screen_height/2);
+
+        function draw_dots(numDots) {
+            var radius = 100;
+            var dot_radius = 100 / numDots;
+            c.fillStyle = "white";
+            for (var i = 0; i < numDots; i++) {
+                var angle = i * (Math.PI * 2 / numDots);
+                var x = radius * Math.cos(angle);
+                var y = radius * Math.sin(angle);
+                c.beginPath();
+                c.moveTo(x, y);
+                c.arc(x, y, dot_radius, 0, Math.PI*2);
+                c.closePath();
+                c.fill();
+            }
+
+        }
+
+        var dot_count = 1;
+        var max_dots = 80;
+        var ticker = 0;
+        function loop() {
+            // every (ticker / 60) seconds
+            ticker ++;
+            if (ticker > 5) {
+                ticker = 0;
+                dot_count = ((dot_count + 1) % max_dots) + 1;
+                c.fillStyle = "indigo";
+                c.fillRect(-canvas.width/2,-canvas.height/2,canvas.width,canvas.height);
+                draw_dots(dot_count);
+            }
+            window.requestAnimFrame(loop);
+        }
+        window.requestAnimFrame(loop);
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    
+</body>
+</html>

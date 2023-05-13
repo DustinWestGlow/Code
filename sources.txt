@@ -1,0 +1,24 @@
+https://git-scm.com/doc
+https://git-scm.com/book/en/v2
+https://stackoverflow.com/questions/65515494/fast-multiplication-and-modulo-operation
+https://www.alpertron.com.ar/ECM.HTM
+https://stackoverflow.com/questions/1450897/remove-characters-except-digits-from-string-using-python
+https://code.activestate.com/recipes/134892/
+http://preserve.mactech.com/macintosh-c/chap02-1.html
+https://stackoverflow.com/questions/13207678/whats-the-simplest-way-of-detecting-keyboard-input-in-a-script-from-the-termina
+https://docs.python.org/3/howto/curses.html
+https://stackoverflow.com/questions/51925804/javascript-highlight-an-element-on-hover
+Note: The id name must contain at least one character, cannot start with a number, and must not contain whitespaces (spaces, tabs, etc.).
+https://stackoverflow.com/questions/3076679/javascript-event-registering-without-using-jquery
+https://stackoverflow.com/questions/588040/window-onload-vs-document-onload
+https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent
+https://stackoverflow.com/questions/384286/how-do-you-check-if-a-javascript-object-is-a-dom-object
+https://stackoverflow.com/questions/4364881/inserting-string-at-position-x-of-another-string
+https://stackoverflow.com/questions/7137401/why-is-the-function-executed-immediately-when-i-use-settimeout
+https://codedamn.com/news/javascript/how-to-read-csv-with-javascript
+https://github.com/evanplaice/jquery-csv/blob/main/docs/api.md
+https://stackoverflow.com/questions/9811215/displaying-raw-text-in-html-like-a-text-editor
+https://ascii.cl/htmlcodes.htm
+https://stackoverflow.com/questions/4444477/how-to-tell-if-a-string-contains-a-certain-character-in-javascript
+https://stackoverflow.com/questions/10201977/how-to-reverse-tuples-in-python
+

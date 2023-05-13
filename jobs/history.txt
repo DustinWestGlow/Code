@@ -1,0 +1,15 @@
+    for line in r:
+        obj = {}
+        splitter = line.split(",")
+        obj["red"] = splitter[0]
+        blue = splitter[1].split(" ")
+        barr = []
+        for b in blue:
+            info_split = b.split(" ")
+            barr.append({
+                "type": info_split[0][0],
+                "amount": int(info_split[0][1:]),
+                "title": info_split[1]
+            })
+        obj["blue"] = barr
+        data.append(obj)
